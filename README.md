@@ -1,7 +1,7 @@
 # A Collection of everything Apple 
-# http://macintosh.ddns.net
+### http://macintosh.ddns.net
 
-# This is intended for your https://brew.sh/ .zshrc configuration file, once /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" HOMEBREW has been installled.
+### This is intended for your https://brew.sh/ .zshrc configuration file, once /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" HOMEBREW has been installled.
 
 # Homebrew installs the stuff you need that Apple (or your Linux system) didn’t.
 
