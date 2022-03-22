@@ -1,35 +1,50 @@
 # A Collection of everything Apple 
-### http://macintosh.ddns.net
+http://macintosh.ddns.net
 
-### This is intended for your https://brew.sh/ .zshrc configuration file, once /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" HOMEBREW has been installled.
+This is intended for your https://brew.sh/ .zshrc configuration file, once 
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+```
+HOMEBREW has been installed.
 
-# Homebrew installs the stuff you need that Apple (or your Linux system) didn’t.
+### Homebrew installs the stuff you need that Apple (or your Linux system) didn’t.
 
+```
 $ brew install wget curl git zsh
+```
 
-# Homebrew installs packages to their own directory and then symlinks their files into /usr/local (on macOS Intel).
+### Homebrew installs packages to their own directory and then symlinks their files into /usr/local (on macOS Intel).
 
+```
 /usr/local
 $ find Cellar
 Cellar/wget/1.16.1
 Cellar/wget/1.16.1/bin/wget
 Cellar/wget/1.16.1/share/man/man1/wget.1
+```
 
+```
 $ ls -l bin
 bin/wget -> ../Cellar/wget/1.16.1/bin/wget
+```
 
-# Homebrew won’t install files outside its prefix and you can place a Homebrew installation wherever you like.
-# Trivially create your own Homebrew packages.
+### Homebrew won’t install files outside its prefix and you can place a Homebrew installation wherever you like.
+### Trivially create your own Homebrew packages.
 
+```
 $ brew create https://foo.com/bar-1.0.tgz
 Created /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/bar.rb
+```
 
-# It’s all Git and Ruby underneath, so hack away with the knowledge that you can easily revert your modifications and merge upstream updates.
+### It’s all Git and Ruby underneath, so hack away with the knowledge that you can easily revert your modifications and merge upstream updates.
 
+```
 $ brew edit wget # opens in $EDITOR!
+```
 
-# Homebrew formulae are simple Ruby scripts:
+### Homebrew formulae are simple Ruby scripts:
 
+```
 class Wget < Formula
   homepage "https://www.gnu.org/software/wget/"
   url "https://ftp.gnu.org/gnu/wget/wget-1.15.tar.gz"
@@ -40,120 +55,130 @@ class Wget < Formula
     system "make", "install"
   end
 end
+```
 
-# Homebrew complements macOS (or your Linux system). Install your RubyGems with gem and their dependencies with brew. “To install, drag this icon…” no more. Homebrew Cask installs macOS apps, fonts and plugins and other non-open source software.
+### Homebrew complements macOS (or your Linux system). Install your RubyGems with gem and their dependencies with brew. “To install, drag this icon…” no more. Homebrew Cask installs macOS apps, fonts and plugins and other non-open source software.
 
+```
 $ brew install --cask iterm2
+```
 
-# Making a cask is as simple as creating a formula.
+### Making a cask is as simple as creating a formula.
 
+```
 $ brew create --cask foo
 Editing /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/foo.rb
+```
 
-# Homebrew Documentation https://docs.brew.sh/Manpage
+## Homebrew Documentation https://docs.brew.sh/Manpage
 
 # Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.
 
-# https://github.com/ohmyzsh/ohmyzsh
+https://github.com/ohmyzsh/ohmyzsh
 
 # Getting Started
 
-# Prerequisites
+### Prerequisites
 
-# A Unix-like operating system: macOS, Linux, BSD. On Windows: WSL2 is preferred, but cygwin or msys also mostly work.
-# Zsh should be installed (v4.3.9 or more recent is fine but we prefer 5.0.8 and newer). If not pre-installed (run zsh --version to confirm), check the following wiki instructions here: Installing ZSH
-# curl or wget should be installed
-# git should be installed (recommended v2.4.11 or higher)
-# Basic Installation
-# Oh My Zsh is installed by running one of the following commands in your terminal. You can install this via the command-line with either curl, wget or another similar tool.
+A Unix-like operating system: macOS, Linux, BSD. On Windows: WSL2 is preferred, but cygwin or msys also mostly work.
+Zsh should be installed (v4.3.9 or more recent is fine but we prefer 5.0.8 and newer). If not pre-installed (run zsh --version to confirm), check the following wiki instructions here: Installing ZSH
+curl or wget should be installed
+git should be installed (recommended v2.4.11 or higher)
 
-# Method	Command
+## Basic Installation
+Oh My Zsh is installed by running one of the following commands in your terminal. You can install this via the command-line with either curl, wget or another similar tool.
 
-# curl	
+## Method	Command
+
+### curl	
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# wget	
+### wget	
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# fetch	
+### fetch	
 sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Note that previous configuration in .zshrc will be placed in .pre-oh-my-zsh. After installation you can move configuration you want to preserve into .zshrc.
+### Note that previous configuration in .zshrc will be placed in .pre-oh-my-zsh. After installation you can move configuration you want to preserve into .zshrc.
 
-# Manual inspection
-# It's a good idea to inspect the install script from projects you don't yet know. You can do that by downloading the install script first, looking through it so everything looks normal, then running it:
+## Manual inspection
+### It's a good idea to inspect the install script from projects you don't yet know. You can do that by downloading the install script first, looking through it so everything looks normal, then running it:
 
+```
 $ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
+```
 
-# Using Oh My Zsh
+## Using Oh My Zsh
 
-# Plugins
+## Plugins
 
-# Oh My Zsh comes with a shitload of plugins for you to take advantage of. You can take a look in the plugins directory and/or the wiki to see what's currently available.
+### Oh My Zsh comes with a shitload of plugins for you to take advantage of. You can take a look in the plugins directory and/or the wiki to see what's currently available.
 
-# Enabling Plugins
-# Once you spot a plugin (or several) that you'd like to use with Oh My Zsh, you'll need to enable them in the .zshrc file. You'll find the zshrc file in your $HOME directory. Open it with your favorite text editor and you'll see a spot to list all the plugins you want to load.
+## Enabling Plugins
+### Once you spot a plugin (or several) that you'd like to use with Oh My Zsh, you'll need to enable them in the .zshrc file. You'll find the zshrc file in your $HOME directory. Open it with your favorite text editor and you'll see a spot to list all the plugins you want to load.
 
+```
 $ vi ~/.zshrc
+```
 
-# For example, this might begin to look like this:
+### For example, this might begin to look like this:
 
-# plugins=(
-#   git
-#   bundler
-#   dotenv
-#   macos
-#   rake
-#   rbenv
-#   ruby
-# )
+plugins=(
+  git
+  bundler
+  dotenv
+  macos
+  rake
+  rbenv
+  ruby
+)
 
-# Note that the plugins are separated by whitespace (spaces, tabs, new lines...). Do not use commas between them or it will break.
+Note that the plugins are separated by whitespace (spaces, tabs, new lines...). Do not use commas between them or it will break.
 
-# Using Plugins
-# Each plugin includes a README, documenting it. This README should show the aliases (if the plugin adds any) and extra goodies that are included in that particular plugin.
+### Using Plugins
+Each plugin includes a README, documenting it. This README should show the aliases (if the plugin adds any) and extra goodies that are included in that particular plugin.
 
-# Themes
-# We'll admit it. Early in the Oh My Zsh world, we may have gotten a bit too theme happy. We have over one hundred and fifty themes now bundled. Most of them have screenshots on the wiki (We are working on updating this!). Check them out!
+### Themes
+We'll admit it. Early in the Oh My Zsh world, we may have gotten a bit too theme happy. We have over one hundred and fifty themes now bundled. Most of them have screenshots on the wiki (We are working on updating this!). Check them out!
 
-# Selecting a Theme
-# Robby's theme is the default one. It's not the fanciest one. It's not the simplest one. It's just the right one (for him).
+### Selecting a Theme
+Robby's theme is the default one. It's not the fanciest one. It's not the simplest one. It's just the right one (for him).
 
-# Once you find a theme that you'd like to use, you will need to edit the ~/.zshrc file. You'll see an environment variable (all caps) in there that looks like:
+Once you find a theme that you'd like to use, you will need to edit the ~/.zshrc file. You'll see an environment variable (all caps) in there that looks like:
 
-# ZSH_THEME="robbyrussell"
-# To use a different theme, simply change the value to match the name of your desired theme. For example:
+ZSH_THEME="robbyrussell"
+To use a different theme, simply change the value to match the name of your desired theme. For example:
 
-# ZSH_THEME="agnoster" # (this is one of the fancy ones)
-# see https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster
-# Note: many themes require installing the Powerline Fonts in order to render properly.
+ZSH_THEME="agnoster" # (this is one of the fancy ones)
+see https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster
+Note: many themes require installing the Powerline Fonts in order to render properly.
 
-# Open up a new terminal window and your prompt should look something like this:
+Open up a new terminal window and your prompt should look something like this:
 
-# Agnoster theme
+Agnoster theme
 
-# In case you did not find a suitable theme for your needs, please have a look at the wiki for more of them.
+In case you did not find a suitable theme for your needs, please have a look at the wiki for more of them.
 
-# If you're feeling feisty, you can let the computer select one randomly for you each time you open a new terminal window.
+If you're feeling feisty, you can let the computer select one randomly for you each time you open a new terminal window.
 
-# ZSH_THEME="random" # (...please let it be pie... please be some pie..)
-# And if you want to pick random theme from a list of your favorite themes:
+ZSH_THEME="random" # (...please let it be pie... please be some pie..)
+And if you want to pick random theme from a list of your favorite themes:
 
-# ZSH_THEME_RANDOM_CANDIDATES=(
-#   "robbyrussell"
-#   "agnoster"
-# )
-# If you only know which themes you don't like, you can add them similarly to an ignored list:
+ZSH_THEME_RANDOM_CANDIDATES=(
+  "robbyrussell"
+  "agnoster"
+)
+If you only know which themes you don't like, you can add them similarly to an ignored list:
 
-# ZSH_THEME_RANDOM_IGNORED=(pygmalion tjkirch_mod)
+ZSH_THEME_RANDOM_IGNORED=(pygmalion tjkirch_mod)
 
 export -f $(cat /Users/"USERNAME"/_/.profile.func)
 /Users/"USERNAME"/.profile
 
-# Motto for a research laboratory: What we work on today, others will first think of tomorrow. Science is knowledge which we understand so well that we can teach it to a computer; and if we don't fully understand something, it is an art to deal with it.
+### Motto for a research laboratory: What we work on today, others will first think of tomorrow. Science is knowledge which we understand so well that we can teach it to a computer; and if we don't fully understand something, it is an art to deal with it.
 
-# .zshrc Configuration File from next line down.
+### .zshrc Configuration File from next line down.
 zmodload zsh/zprof # top of your .zshrc file
 #
 #!/usr/bin/env python
@@ -166,7 +191,7 @@ DISABLE_UPDATE_PROMPT=true
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Library/Apple/usr/bin:/Users/darrin/bin:$PATH"
 PATH="/usr/local/opt/libtool/libexec/gnubin:$PATH"
 
-# Path to your oh-my-zsh installation.
+### Path to your oh-my-zsh installation.
 export ZSH="/Users/darrin/.oh-my-zsh"
 export PATH="$HOME/.cask/bin:$PATH"
 # Enable completions
@@ -215,7 +240,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 ##
-# Uncomment the following line to use hyphen-insensitive completion.
+Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 ##
